@@ -8,9 +8,6 @@
 
 static gboolean
 plugin_load(PurplePlugin *plugin) {
-    purple_notify_message(plugin, PURPLE_NOTIFY_MSG_INFO, "LDAP sync",
-                        "LDAP sync plugin loaded", NULL, NULL, NULL);
-
     return TRUE;
 }
 
