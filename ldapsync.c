@@ -5,6 +5,7 @@
 #include "notify.h"
 #include "plugin.h"
 #include "version.h"
+#include "ldap.h"
 
 static gboolean
 plugin_load(PurplePlugin *plugin) {

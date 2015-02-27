@@ -1,6 +1,12 @@
-CFLAGS=-fPIC $(shell pkg-config --cflags purple)
-LDFLAGS=-shared $(shell pkg-config --libs purple)
+CFLAGS=-Wall $(shell pkg-config --cflags purple)
+LDFLAGS=$(shell pkg-config --libs purple) -lldap
+
+default: ldapsync.so ldaptest
 
 ldapsync.so: ldapsync.o
-	$(CC) $(LDFLAGS) $< -o $@
+	$(CC) -shared $(LDFLAGS) $< -o $@
 
+ldaptest: ldaptest.o
+
+ldapsync.o: ldapsync.c
+	$(CC) -fPIC $(CFLAGS) -c -o $@ $<
