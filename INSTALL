@@ -1,0 +1,5 @@
+RPM-based:
+yum install libpurple-devel
+
+DPKG-based:
+apt-get install libpurple-dev libglib2.0-dev libldap2-dev
