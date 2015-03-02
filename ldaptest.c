@@ -120,6 +120,7 @@ LDAP *ldaptest_connect(char *url, char *user, char *password) {
 	error = ldap_simple_bind_s(ldap, user, password);
 	if (error != LDAP_SUCCESS) {
 		fprintf(stderr, "Could not bind to LDAP directory: %s\n", ldap_err2string(error));
+		ldap_destroy(ldap);
 		exit(1);
 	}
 
