@@ -13,5 +13,11 @@ ldaptest: ldaptest.o
 ldapsync.o: ldapsync.c
 	$(CC) -fPIC $(CFLAGS) -c -o $@ $<
 
+install: ldapsync.so
+	install -vm 664 $< $(DESTDIR)/usr/lib/purple-2/
+
+uninstall:
+	rm -fv $(DESTDIR)/usr/lib/purple-2/ldapsync.so
+
 clean:
 	rm -fv ldap*.o ldap*.so ldaptest
